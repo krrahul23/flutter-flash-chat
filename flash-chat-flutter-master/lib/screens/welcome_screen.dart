@@ -3,6 +3,8 @@ import 'login_screen.dart';
 import 'registration_screen.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flash_chat/components/rounded_button.dart';
+import 'chat_screen.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class WelcomeScreen extends StatefulWidget {
   static const String id = 'welcome_screen';
@@ -12,13 +14,13 @@ class WelcomeScreen extends StatefulWidget {
 
 class _WelcomeScreenState extends State<WelcomeScreen>
     with SingleTickerProviderStateMixin {
+  final _auth = FirebaseAuth.instance;
   AnimationController controller;
   Animation animation;
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
-
     controller = AnimationController(
       vsync: this,
       duration: Duration(seconds: 1),
